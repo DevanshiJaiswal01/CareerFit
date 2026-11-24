@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Skill Assessment - CareerFit</title>
+
+<link rel="stylesheet"
+      href="style.css">
+
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        CareerFit
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="login.html">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- Skill Assessment -->
+
+<section class="skill-section">
+
+    <div class="skill-box">
+
+        <h1>Start Assessment</h1>
+
+        <p class="skill-subtitle">
+            Add and update your skills to improve your career recommendations.
+        </p>
+
+
+        <form id="skillForm">
+
+
+            <!-- Python -->
+
+            <div class="skill-item">
+
+                <label>
+                    Python
+                </label>
+
+                <select id="python">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- C# -->
+
+            <div class="skill-item">
+
+                <label>
+                    C#
+                </label>
+
+                <select id="csharp">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- SQL -->
+
+            <div class="skill-item">
+
+                <label>
+                    SQL / Database
+                </label>
+
+                <select id="sql">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- HTML -->
+
+            <div class="skill-item">
+
+                <label>
+                    HTML / CSS
+                </label>
+
+                <select id="html">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- JavaScript -->
+
+            <div class="skill-item">
+
+                <label>
+                    JavaScript
+                </label>
+
+                <select id="javascript">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Communication -->
+
+            <div class="skill-item">
+
+                <label>
+                    Communication
+                </label>
+
+                <select id="communication">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Problem Solving -->
+
+            <div class="skill-item">
+
+                <label>
+                    Problem Solving
+                </label>
+
+                <select id="problemSolving">
+
+                    <option value="1">
+                        1 - Beginner
+                    </option>
+
+                    <option value="2">
+                        2 - Basic
+                    </option>
+
+                    <option value="3">
+                        3 - Intermediate
+                    </option>
+
+                    <option value="4">
+                        4 - Advanced
+                    </option>
+
+                    <option value="5">
+                        5 - Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button full-button">
+
+                Save My Skills
+
+            </button>
+
+            
+
+
+        </form>
+    </div>
+
+</section>
+
+<p id="skillMessage"
+   role="status"
+   style="display:block; min-height:25px; margin:15px; text-align:center; color:green;">
+</p>
+
+<footer>
+
+    <p>
+        © 2026 Skill & Career Recommendation System
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - CareerFit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            CareerFit
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="index.html">Home</a>
+
+            <a href="#" id="logoutLink">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>
+                Welcome, <span id="welcomeName">Student</span>!
+            </h1>
+
+            <p>
+                Find the career that suits you best.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-cards">
+
+   
+
+         <!-- Profile -->
+            <div class="dashboard-card">
+
+                <div class="feature-icon">👤</div>
+
+                <h2>My Profile</h2>
+
+                <p>
+                    View and update your education
+                    and personal information.
+                </p>
+
+                <a href="profile.html" class="primary-button">
+                    View Profile
+                </a>
+
+            </div>
+
+
+            <!-- Skills -->
+            <div class="dashboard-card">
+
+                <div class="feature-icon">🧠</div>
+
+                <h2>My Skills</h2>
+
+                <p>
+                    Tell us about your technical
+                    and soft skills.
+                </p>
+
+                <a href="skill.html" class="primary-button">
+                    Skill Assessment
+                </a>
+
+            </div>
+
+
+            <!-- Interests -->
+            <div class="dashboard-card">
+
+                <div class="feature-icon">❤️</div>
+
+                <h2>My Interests</h2>
+
+                <p>
+                    Select or update your career interests.
+                </p>
+
+                <a href="interests.html" class="primary-button">
+                    Select Interests
+                </a>
+
+            </div>
+
+
+            <!-- Recommendation -->
+            <div class="dashboard-card">
+
+                <div class="feature-icon">🎯</div>
+
+                <h2>Career Recommendation</h2>
+
+                <p>
+                    Find careers that match your
+                    skills and interests.
+                </p>
+
+                <a href="recommendation.html" class="primary-button">
+                    Get Recommendation
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>
+            © 2026 CareerFit - Skill and Career Recommendation System
+        </p>
+    </footer>
+
+
+    <!-- Dashboard JavaScript -->
+    <script>
+
+        // Display logged-in student's name
+        const studentName = localStorage.getItem("studentName");
+
+        if (studentName) {
+            document.getElementById("welcomeName").textContent = studentName;
+        }
+
+        // Logout functionality
+        document.getElementById("logoutLink").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            localStorage.removeItem("studentName");
+
+            window.location.href = "login.html";
+
+        });
+
+    </script>
+
+</body>
+</html>
