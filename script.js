@@ -589,11 +589,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         event.preventDefault();
 
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
-        const message = document.getElementById("loginMessage");
+        
+const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+const password = document.getElementById("loginPassword").value;
+const message = document.getElementById("loginMessage");
 
-        message.textContent = "Checking login details...";
+// Check empty fields
+if (!email || !password) {
+    message.style.color = "red";
+    message.textContent = "Please enter your email and password.";
+    return;
+}
+
+// Check email format
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(email)) {
+    message.style.color = "red";
+    message.textContent = "Please enter a valid email address.";
+    return;
+}
+
+message.textContent = "Checking login details...";
 
         try {
 
