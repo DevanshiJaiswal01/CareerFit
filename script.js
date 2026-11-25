@@ -509,11 +509,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         event.preventDefault();
 
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+      const name = document.getElementById("name").value.trim();
+const email = document.getElementById("email").value.trim().toLowerCase();
+const password = document.getElementById("password").value;
 
-        const message = document.getElementById("registerMessage");
+const message = document.getElementById("registerMessage");
+
+// Check empty fields
+if (!name || !email || !password) {
+    message.style.color = "red";
+    message.textContent = "Please fill all required fields.";
+    return;
+}
+
+// Check email format
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(email)) {
+    message.style.color = "red";
+    message.textContent = "Please enter a valid email address.";
+    return;
+}
 
         message.textContent = "Creating your account...";
 
