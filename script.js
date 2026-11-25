@@ -839,20 +839,24 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             recommendations.slice(1).forEach(career => {
 
-                const card = document.createElement("div");
+                
+const card = document.createElement("div");
+card.className = "career-option-card";
 
-                const heading = document.createElement("h4");
-                heading.textContent = career.career;
+const heading = document.createElement("h4");
+heading.textContent = career.career;
 
-                const description = document.createElement("p");
-                description.textContent = career.description;
+const description = document.createElement("p");
+description.textContent = career.description;
 
-                const percentage = document.createElement("p");
-                percentage.textContent =
-                    "Match: " + career.matchPercentage + "%";
+const percentage = document.createElement("p");
+percentage.className = "career-match";
+percentage.textContent =
+    "Match: " + career.matchPercentage + "%";
 
-                card.append(heading, description, percentage);
-                otherCareerList.appendChild(card);
+card.append(heading, description, percentage);
+otherCareerList.appendChild(card);
+
 
             });
         }
