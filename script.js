@@ -916,14 +916,33 @@ document.addEventListener("DOMContentLoaded", async function () {
         event.preventDefault();
 
         const name = document.getElementById("profileName").value.trim();
-        const education = document.getElementById("profileEducation").value;
-        const cgpaInput = document.getElementById("profileCgpa").value;
+const education = document.getElementById("profileEducation").value.trim();
+const cgpaInput = document.getElementById("profileCgpa").value.trim();
+
+// Validate required fields
+if (!name || !education) {
+    message.style.color = "red";
+    message.textContent = "Please enter your name and education.";
+    return;
+}
+
+// Validate CGPA (10-point scale)
+const cgpa = cgpaInput === "" ? null : Number(cgpaInput);
+
+if (
+    cgpa !== null &&
+    (!Number.isFinite(cgpa) || cgpa < 0 || cgpa > 10)
+) {
+    message.style.color = "red";
+    message.textContent = "Please enter a valid CGPA between 0 and 10.";
+    return;
+}
 
         const profileData = {
             name: name,
             email: email,
             education: education,
-            cgpa: cgpaInput === "" ? null : Number(cgpaInput)
+            cgpa: cgpa
         };
 
         message.textContent = "Updating profile...";
