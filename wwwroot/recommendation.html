@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Career Recommendation - CareerFit</title>
+
+<link rel="stylesheet"
+      href="style.css">
+
+
+</head>
+
+<body>
+
+
+<!-- Navigation -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        CareerFit
+    </div>
+
+    <div class="nav-links">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="skills.html">
+            My Skills
+        </a>
+
+        <a href="interests.html">
+            My Interests
+        </a>
+
+        <a href="login.html">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- Recommendation -->
+
+<section class="recommendation-section">
+
+    <div class="recommendation-box">
+
+        <h1>Career Recommendation</h1>
+
+        <p class="recommendation-subtitle">
+            Based on your skills and interests
+        </p>
+
+
+        <!-- Main Result -->
+
+        <div class="career-result">
+
+            <div class="career-icon">
+                🎯
+            </div>
+
+            <h2 id="careerName">
+                Calculating...
+            </h2>
+
+            <p>
+                Your career match
+            </p>
+
+            <div class="match-score"
+                 id="matchScore">
+
+                --%
+
+            </div>
+
+        </div>
+<!-- Other Recommended Careers -->
+
+<div class="result-section">
+
+    <h3>Other Recommended Careers</h3>
+
+    <div id="otherCareerList"></div>
+
+</div>
+
+        <!-- Strengths -->
+
+        <div class="result-section">
+
+            <h3>
+                Your Strong Skills
+            </h3>
+
+            <div id="strongSkills"
+                 class="skill-list">
+
+            </div>
+
+        </div>
+
+
+        <!-- Skills to Improve -->
+
+        <div class="result-section">
+
+            <h3>
+                Skills You Should Improve
+            </h3>
+
+            <div id="weakSkills"
+                 class="skill-list">
+
+            </div>
+
+        </div>
+
+
+        <!-- Interests -->
+
+        <div class="result-section">
+
+            <h3>
+                Your Interests
+            </h3>
+
+            <div id="userInterests"
+                 class="interest-list">
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button full-button"
+            onclick="goToDashboard()">
+
+            Back to Dashboard
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 Skill & Career Recommendation System
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

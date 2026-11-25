@@ -12,7 +12,10 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-app.UseCors("CareerFitPolicy");
+// Serve CareerFit frontend files
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 
 app.UseCors("Frontend");
 
@@ -270,6 +273,56 @@ return Results.Ok(new
     //return Results.Ok(new { message = "Skills saved successfully!" });
 });
 
+
+
+
+
+app.MapGet("/api/skills", async (string email) =>
+{
+    if (string.IsNullOrWhiteSpace(email))
+        return Results.BadRequest(new
+        {
+            message = "Student email is required."
+        });
+
+    email = email.Trim().ToLowerInvariant();
+
+    await using var connection =
+        new SqliteConnection(connectionString);
+
+    await connection.OpenAsync();
+
+    var command = connection.CreateCommand();
+
+    command.CommandText = """
+        SELECT Python, Csharp, Sql, Html, Javascript,
+               Communication, ProblemSolving
+        FROM StudentSkills
+        WHERE LOWER(TRIM(Email)) = $email
+        """;
+
+    command.Parameters.AddWithValue("$email", email);
+
+    await using var reader = await command.ExecuteReaderAsync();
+
+    if (!await reader.ReadAsync())
+        return Results.NotFound(new
+        {
+            message = "No saved skills found for this student."
+        });
+
+    return Results.Ok(new
+    {
+        python = reader.GetInt32(0),
+        csharp = reader.GetInt32(1),
+        sql = reader.GetInt32(2),
+        html = reader.GetInt32(3),
+        javascript = reader.GetInt32(4),
+        communication = reader.GetInt32(5),
+        problemSolving = reader.GetInt32(6)
+    });
+});
+
 app.MapPost("/api/interests", async (InterestRequest request) =>
 {
     if (string.IsNullOrWhiteSpace(request.Email))
@@ -328,6 +381,50 @@ app.MapPost("/api/interests", async (InterestRequest request) =>
     await save.ExecuteNonQueryAsync();
 
     return Results.Ok(new { message = "Interests saved successfully!" });
+});
+
+app.MapGet("/api/interests", async (string email) =>
+{
+    if (string.IsNullOrWhiteSpace(email))
+        return Results.BadRequest(new
+        {
+            message = "Student email is required."
+        });
+
+    email = email.Trim().ToLowerInvariant();
+
+    await using var connection =
+        new SqliteConnection(connectionString);
+
+    await connection.OpenAsync();
+
+    var command = connection.CreateCommand();
+
+    command.CommandText = """
+        SELECT Interests
+        FROM StudentInterests
+        WHERE LOWER(TRIM(Email)) = $email
+        """;
+
+    command.Parameters.AddWithValue("$email", email);
+
+    var result = await command.ExecuteScalarAsync();
+
+    if (result == null || result == DBNull.Value)
+        return Results.NotFound(new
+        {
+            message = "No saved interests found."
+        });
+
+    var interests =
+        System.Text.Json.JsonSerializer.Deserialize<string[]>(
+            Convert.ToString(result) ?? "[]"
+        ) ?? Array.Empty<string>();
+
+    return Results.Ok(new
+    {
+        interests = interests
+    });
 });
 
 
