@@ -1019,3 +1019,78 @@ font-size: 14px;
 
 
 }
+
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+========================= */
+
+@media screen and (max-width: 600px) {
+
+    .recommendation-section {
+        min-height: auto;
+        padding: 25px 12px;
+    }
+
+    .recommendation-box {
+        padding: 24px 16px;
+        border-radius: 12px;
+    }
+
+    .recommendation-box h1 {
+        font-size: 26px;
+    }
+
+    .career-result {
+        padding: 22px 14px;
+    }
+
+    .career-icon {
+        font-size: 42px;
+    }
+
+    .career-result h2 {
+        font-size: 23px;
+    }
+
+    .match-score {
+        font-size: 36px;
+    }
+
+    .result-section h3 {
+        font-size: 18px;
+    }
+
+    .skill-list,
+    .interest-list {
+        gap: 8px;
+    }
+
+    .skill-tag,
+    .weak-tag,
+    .interest-tag {
+        font-size: 13px;
+        padding: 7px 11px;
+        overflow-wrap: anywhere;
+    }
+
+    .interest-card {
+        gap: 10px;
+        padding: 14px 12px;
+        align-items: flex-start;
+    }
+
+    .interest-icon {
+        font-size: 25px;
+        width: 35px;
+        flex-shrink: 0;
+    }
+
+    .interest-content strong {
+        font-size: 15px;
+    }
+
+    .interest-content small {
+        font-size: 13px;
+    }
+}
